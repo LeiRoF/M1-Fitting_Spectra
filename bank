@@ -1,0 +1,75 @@
+! récupérer le nombre de lignes dans un fichier
+subroutine nline
+    integer :: N
+    open (unit = 10, file = "spectre_1.txt")
+    N = 0 
+    DO 
+        READ (10,*, END=10) 
+        N = N + 1
+    END DO 
+    10 close(10)
+end subroutine
+
+! Ajouter un élément à une liste
+subroutine append(x, a)
+    real, dimension(:), allocatable :: x
+    real, dimension(SIZE(x)+1) :: copy
+    integer :: i=0
+
+    do while(i < SIZE(x))
+        copy(i) = x(i)
+        i = i+1
+    end do
+
+    copy(i) = a
+
+    deallocate(x)
+    !allocate(x,size(x) + 1)
+
+    x = copy
+
+end subroutine append
+
+
+!required vectors: fexp(N), w(N), x(N), x2(N), x3(3), x4(N), y(N), yx(N), yx2(N), W1(N), W(N)
+
+    !wi = 2280; max; 0.01
+    do i = 1,N
+        w(i) = 2280 + 0.01 * (i-1)
+    end do
+
+    ! TODO : calculate the mean value of w ...
+    
+    do i = 1,N
+        x(i) = (w(i) - wm) / sigma
+    end do
+
+    do i=1,N
+        y(i) = 1/fexp(i)
+        yx(i) = x(i) * y(i)
+        yx2(i) = yx(i) * x(i)
+    end do
+
+    do i=1,N
+        W1(i) = 1
+        W_(i) = fexp(i) * fexp(i)
+    end do
+
+    wm = w_av - a1 * sigma / (2 * a2)
+    g = sigma * sqrt(a0/a2 - a1**2 / (4 * a2**2))
+    S = pi * sigma / sqrt(a0 * a2 - a1**2 / 4)
+
+end program smooth
+
+subroutine average(N,V,WF,RES)
+
+
+end subroutine
+
+
+
+real function adim_w(w, wm) ! Adimenstionalisation de w
+    real :: w, wm
+    adim_w = (w - wm)/wm 
+    return
+end
