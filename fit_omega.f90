@@ -1,27 +1,33 @@
 program linreg
     implicit none
-    real :: a=0, b, res, p_av, w_av
+    real :: a=0, b
+    real :: sum_p = 0, sum_p2 = 0, sum_pw = 0, sum_w = 0, sum_w2 = 0
     integer :: i, N = 5
-    real, dimension(5) :: w, p, weight
+    real, dimension(5) :: w, p
 
-    w = [2282.64526, 2282.93457, 2283.36963, 2283.94995, 2284.68140]
+    
     p = [1.0, 3.0, 6.0, 10.0, 15.0]
-    weight = [1.0, 1.0, 1.0, 1.0, 1.0]
 
-    call average(p, weight, N, res)
-    p_av = res
-
-    call average(w, weight, N, res)
-    w_av = res
-
-    do i=1,5
-        a = a + (p(i) - p_av) * (w(i) - w_av)
+    open (unit = 10, file = "data/omega.txt")
+    do i=1,N
+        READ(10,*) w(i)
     end do
-    a = a / (p(i) - p_av) / (p(i) - p_av)
 
-    b = w_av - a * p_av
+    do i=1,N
+        sum_p  = sum_p + p(i)
+        sum_p2 = sum_p2 + p(i) * p(i)
+        sum_pw = sum_pw + p(i) * w(i)
+        sum_w  = sum_w + w(i)                                     
+        sum_w2 = sum_w2 + w(i) * w(i)                                  
+    end do
 
-    print *, "Y = ", a, " * x + ", b
+    a = ( N*sum_pw - sum_p*sum_w ) / &
+        ( N*sum_p2 - sum_p*sum_p )
+
+    b = ( sum_w*sum_p2 - sum_p*sum_pw ) / &
+        ( N*sum_p2     - sum_p*sum_p  )
+
+    print *, "y = ", a, " * x + ", b
 
     call plot(p, w, N, a, b)
 
@@ -66,6 +72,6 @@ subroutine plot(x, y, N, a, b)
 
     close (fu)
 
-    call execute_command_line('python plot_wp.py')
+    call execute_command_line('python plot_omega.py')
 end subroutine plot
 
