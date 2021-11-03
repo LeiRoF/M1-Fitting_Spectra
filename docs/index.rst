@@ -10,6 +10,7 @@ Welcome to Fitting Spectra's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   Physic Description.rst
 
 
 Indices and tables
