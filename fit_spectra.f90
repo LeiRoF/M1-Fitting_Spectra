@@ -12,13 +12,13 @@ program smooth
     real, dimension(1000):: fexp, w, w2, x, x2, x3, x4, y, yx, yx2, WEIGHT, WEIGHT1
     real :: pressure
 
-    open (unit = 10, file = "data/spectre_5.txt")
-    pressure = 15.0
+    open (unit = 10, file = "data/spectre_5.txt")   ! openiing file
+    pressure = 15.0                                 ! associated pressure
 
 ! __________________________________________________
 ! READ FILE
 
-    do
+    do                                              ! Counting line number
         READ(10,*,iostat=io) tmp
         if (io /= 0) then
             exit
@@ -28,36 +28,36 @@ program smooth
     end do
 
     rewind(10)
-    do i=1,N
+    do i=1,N                                        ! Reading lines
         READ(10,*) fexp(i)
     end do
 
 ! __________________________________________________
 ! COMPUTE
 
-    ! weight functions
-    do i=1,N
+
+    do i=1,N                                        ! weight functions
         WEIGHT1(i) = 1
         WEIGHT(i) = fexp(i) * fexp(i)
     end do
 
-    ! w  elements
-    do i = 1,N
+
+    do i = 1,N                                      ! w range
         w(i) = 2280 + 0.01 * (i-1)
         w2(i) = w(i) * w(i)
     end do
 
-    ! w averages
-    call average (w, WEIGHT1, N, res)
+
+    call average (w, WEIGHT1, N, res)               ! w averages
     w_av = res
     call average (w2, WEIGHT1, N, res)
     w2_av = res
 
-    ! sigma
-    sigma = sqrt(w2_av - w_av*w_av)
+    
+    sigma = sqrt(w2_av - w_av*w_av)                 ! sigma
 
-    ! x and y elements
-    do i = 1,N
+    
+    do i = 1,N                                      ! x and y elements
         x(i) = (w(i) - w_av) / sigma
         x2(i) = x(i) * x(i)
         x3(i) = x2(i) * x(i)
@@ -67,8 +67,8 @@ program smooth
         yx2(i) = yx(i) * x(i)
     end do
     
-    ! x and y averages
-    call average (x, WEIGHT, N, res)
+                                    
+    call average (x, WEIGHT, N, res)                ! x and y averages
     x_av = res
     call average (x2, WEIGHT, N, res)
     x2_av = res
@@ -84,11 +84,12 @@ program smooth
     call average (yx2, WEIGHT, N, res)
     yx2_av = res
 
-    call average (WEIGHT1, WEIGHT, N, res)
+
+    call average (WEIGHT1, WEIGHT, N, res)         ! weight average
     WEIGHT_av = res
 
     
-    a0 = (&
+    a0 = (&                                             ! computing a0
             y_av        * x2_av     * x4_av     &
         +   yx_av       * x3_av     * x2_av     &
         +   x_av        * x3_av     * yx2_av    &
@@ -103,7 +104,7 @@ program smooth
         -   x_av          * x_av      * x4_av     &
         )
 
-    a1 = (&
+    a1 = (&                                             ! computing a1
             WEIGHT_av   * yx_av     * x4_av     &
         +   x2_av       * x3_av     * y_av      &
         +   x_av        * x2_av     * yx2_av    &
@@ -118,12 +119,7 @@ program smooth
         -   x_av          * x_av      * x4_av     &
         )
 
-        !    WEIGHT_av   * (x2_av    * x4_av     - x3_av     * x3_av)    &
-        !-   x_av        * (x_av     * x4_av     - x2_av     * x3_av)    &
-        !+   x2_av       * (x_av     * x3_av     - x2_av     * x2_av)    &
-        !)
-
-    a2 = (&
+    a2 = (&                                             ! computing a2
             WEIGHT_av   * x2_av     * yx2_av    &
         +   x_av        * x3_av     * y_av      &
         +   x_av        * x2_av     * yx_av     &
@@ -137,12 +133,6 @@ program smooth
         -   WEIGHT_av     * x3_av     * x3_av     &
         -   x_av          * x_av      * x4_av     &
         )
-
-        !    WEIGHT_av   * (x2_av    * x4_av     - x3_av     * x3_av)    &
-        !-   x_av        * (x_av     * x4_av     - x2_av     * x3_av)    &
-        !+   x2_av       * (x_av     * x3_av     - x2_av     * x2_av)    &
-        !)
-
 
     wm = w_av - sigma * a1 / (2 * a2)
 
