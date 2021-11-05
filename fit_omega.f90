@@ -72,6 +72,6 @@ subroutine plot(x, y, N, a, b)
 
     close (fu)
 
-    call execute_command_line('python plot_omega.py')
+    call execute_command_line('python3 plot_omega.py')
 end subroutine plot
 

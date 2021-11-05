@@ -1,4 +1,5 @@
 from bokeh.plotting import figure, show
+import bokeh
 from numpy import *
 
 def F(w):
@@ -39,8 +40,10 @@ for i in x:
     y2.append(F(i))
     
 
-p = figure(title="Spectrum", sizing_mode="stretch_width", height=800, y_axis_label='Intensity (arb. unit)', x_axis_label='Wavenumber (cm-1)')
+p = figure(title="Spectrum", sizing_mode="stretch_both", height=800, y_axis_label='Intensity (arb. unit)', x_axis_label='Wavenumber (cm-1)')
 p.circle(x, y, legend_label="Experimental data", line_color="blue", fill_alpha=0, size=12)
 
 p.line(x, y2, legend_label="Fitting", line_color="red", line_width=2)
-show(p)
+
+bokeh.io.save(p)
+#show(p)

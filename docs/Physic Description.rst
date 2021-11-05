@@ -7,6 +7,7 @@ L'objectif est de faire concorder une forme de spectre théorique, qui prend la 
 La lorentienne est définie par :
 
 .. math::
+    :label: F(w)
 
     F(\omega) = \frac{S}{\pi} * \frac{\gamma}{(\omega-\omega_m)^2 + \gamma^2}
 
@@ -15,6 +16,7 @@ Où :math:`\omega` est la fréquence d'émission; :math:`\omega_m` est la fréqu
 Afin de pouvoir réaliser cet ajustement théorique, nous avons besoin de transformer cette fonction de sorte à ce qu'elle prenne la forme d'un polynôme. On prend donc son inverse:
 
 .. math::
+    :label: F(w)-1
 
     F(\omega)^{-1} &= \frac{\pi}{S} \frac{(\omega-\omega_m)^2 + \gamma^2}{\gamma}
 
@@ -23,6 +25,7 @@ Afin de pouvoir réaliser cet ajustement théorique, nous avons besoin de transf
 Pour le programm, les valeurs d'omega risquent d'être trop grande. On définit alors :
 
 .. math::
+    :label: x
 
     x &= \frac{\omega - \bar{\omega}}{\sqrt{\bar{\omega^2} - \bar{\omega}^2}}
 
@@ -31,24 +34,28 @@ Pour le programm, les valeurs d'omega risquent d'être trop grande. On définit 
 Ce qui nous donne :
 
 .. math::
+    :label: F(x)
 
     F(\omega)^{-1} = \frac{\pi\gamma^2}{S\gamma}x^2 + \frac{2\pi\sigma}{S\gamma}(\bar{\omega}-\omega_m)x + \frac{\pi}{S\gamma}(\gamma^2 + (\bar{\omega} - \omega_m)^2)
 
 Que l'on peut réecrire sous la forme:
 
 .. math::
+    :labal: y(x)
     
     F(\omega)^{-1} = a_2x^2 + a_1x + a_0
 
 L'objectif est donc de trouver la combinaison :math:`\{a_0, a_1, a_2\}` de sorte à minimiser les coefficients
 
 .. math::
+    :label: E
 
     E(a_0,a_1,a_2) = \sum_{i=1}^{N} W_i (a_2 x_i^2 + a_1 x_i + a_0 - y_i)^2
 
 Pour trouver un minimum, on cherche donc les points où la dérivée s'annule, ce qui nous donne:
 
 .. math::
+    :label: E'=0
 
     \begin{equation}
         \begin{cases}
@@ -66,6 +73,7 @@ Pour trouver un minimum, on cherche donc les points où la dérivée s'annule, c
 Qui un fois décomposé  nous donne:
 
 .. math::
+    :label: sums
     
     \begin{equation}
         \begin{cases}
@@ -78,6 +86,7 @@ Qui un fois décomposé  nous donne:
 Si on divise tout par :math:`N`, on obtient la moyenne de tous les termes:
 
 .. math::
+    :label: sys
 
     \begin{equation}
         \begin{cases}
@@ -90,6 +99,7 @@ Si on divise tout par :math:`N`, on obtient la moyenne de tous les termes:
 Ainsi, on peut tout diviser par :math:`<W>` et écrire ce système sous la forme d'une équation matricielle:
 
 .. math::
+    :label: matrix
 
     \begin{pmatrix}
         1     & <x>   & <x^2> \\
@@ -110,6 +120,7 @@ Ainsi, on peut tout diviser par :math:`<W>` et écrire ce système sous la forme
 On peut donc déterminer les coefficients :math:`a_0, a_1, a_2`
     
 .. math::
+    :label: a0
 
     a_0 = \frac{
     \begin{vmatrix}
@@ -126,11 +137,7 @@ On peut donc déterminer les coefficients :math:`a_0, a_1, a_2`
     }
 
 .. math::
-
-    a_0 = \frac{<y><x^2><x^4> + <yx><x^3><x^2> + <x><x^3><x^2> + <x><x^3><yx^2> - <yx^2><x^2>^2 - <y><x^3>^2 - <x><yx><x^4>}
-    {1<x^2><x^4> + 2<x><x^2><x^3> - <x^2>^3 - 1<x^3>^2 - <x>^2<x^4>}
-
-.. math::
+    :label: a1
 
     a_1 &= \frac{
     \begin{vmatrix}
@@ -147,6 +154,7 @@ On peut donc déterminer les coefficients :math:`a_0, a_1, a_2`
     }
 
 .. math::
+    :label: a2
 
     a_2 &= \frac{
     \begin{vmatrix}

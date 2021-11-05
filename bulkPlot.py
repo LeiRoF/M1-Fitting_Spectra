@@ -1,4 +1,5 @@
 from bokeh.plotting import figure, show
+import bokeh
 from numpy import *
 
 def F(w, wm, gamma, S):
@@ -43,8 +44,7 @@ def get_data(file1, file2):
     
     return x, y, yt
 
-
-p = figure(title="Spectrum", sizing_mode="stretch_width", height=800, y_axis_label='Intensity (arb. unit)', x_axis_label='Wavenumber (cm-1)')
+p = figure(title="Spectrum", sizing_mode="stretch_both", y_axis_label='Intensity (arb. unit)', x_axis_label='Wavenumber (cm-1)')
 color = ["purple","blue","green","yellow","pink"]
 for i in range(5):
     print(f"results/plot_spectre_{i+1}.plt")
@@ -52,4 +52,5 @@ for i in range(5):
     p.line(x, yt, legend_label=f"Fittings", line_color="red", line_width=2)
     p.circle(x, y, legend_label=f"Experimental data for spectra {i+1}", line_color=color[i], line_alpha=0.5, fill_alpha=0, size=5, line_width=1)
 
-show(p)
+bokeh.io.save(p)
+#show(p)

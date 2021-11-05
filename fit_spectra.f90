@@ -196,6 +196,6 @@ subroutine plot(x, y, N, wm, gamma, S, pressure)
     write (fu, *) wm, gamma, S, pressure
     close (fu)
 
-    call execute_command_line('python plot_spectra.py')
+    call execute_command_line('python3 plot_spectra.py')
 end subroutine plot
 
