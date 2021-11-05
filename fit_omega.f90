@@ -1,6 +1,6 @@
 program linreg
     implicit none
-    real :: a=0, b
+    real :: a1=0, a0
     real :: sum_p = 0, sum_p2 = 0, sum_pw = 0, sum_w = 0, sum_w2 = 0
     integer :: i, N = 5
     real, dimension(5) :: w, p
@@ -21,15 +21,15 @@ program linreg
         sum_w2 = sum_w2 + w(i) * w(i)                                  
     end do
 
-    a = ( N*sum_pw - sum_p*sum_w ) / &
+    a1 = ( N*sum_pw - sum_p*sum_w ) / &
         ( N*sum_p2 - sum_p*sum_p )
 
-    b = ( sum_w*sum_p2 - sum_p*sum_pw ) / &
+    a0 = ( sum_w*sum_p2 - sum_p*sum_pw ) / &
         ( N*sum_p2     - sum_p*sum_p  )
 
-    print *, "y = ", a, " * x + ", b
+    print *, "y = ", a1, " * x + ", a0
 
-    call plot(p, w, N, a, b)
+    call plot(p, w, N, a1, a0)
 
 end program linreg
 
@@ -49,14 +49,14 @@ subroutine average(x, weight, N, res)
 end subroutine average
 
 
-subroutine plot(x, y, N, a, b)
+subroutine plot(x, y, N, a1, a0)
     implicit none
     real, dimension(N) :: x
     real, dimension(N) :: y
     integer :: N
     integer :: i
     integer :: fu
-    real :: a, b
+    real :: a1, a0
 
     open (action='write', file="results/w(p)_exp.plt", newunit=fu, status='replace')
 
@@ -68,7 +68,7 @@ subroutine plot(x, y, N, a, b)
 
     open (action='write', file="results/w(p)_theor.txt", newunit=fu, status='replace')
 
-    write (fu, *) a, b
+    write (fu, *) a1, a0
 
     close (fu)
 

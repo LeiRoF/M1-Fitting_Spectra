@@ -53,4 +53,4 @@ for i in range(5):
     p.circle(x, y, legend_label=f"Experimental data for spectra {i+1}", line_color=color[i], line_alpha=0.5, fill_alpha=0, size=5, line_width=1)
 
 bokeh.io.save(p)
-#show(p)
+show(p)

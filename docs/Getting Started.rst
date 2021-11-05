@@ -31,7 +31,7 @@ Installation
     gfortran -o fit_omega ./fit_omega.f90
 
 
-utilisation
+Utilisation
 ===========
 
 Ce projet contient 2 programmes indépendants : 
@@ -52,4 +52,8 @@ Lancer Fit Omega
 .. code-block::
 
     ./fit_omega
+
+.. note::
     
+    Si une erreur apparait à la fin de l'execution du programme et qu'aucune fenêtre ne s'affiche, vous pouvez l'ouvrir manuellement en utilisant votre navigateur pour ouvrir le fichier `plot_spectra.hmtl` ou `plot_omega.html`
+

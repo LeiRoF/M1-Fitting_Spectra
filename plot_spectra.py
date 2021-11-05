@@ -46,4 +46,4 @@ p.circle(x, y, legend_label="Experimental data", line_color="blue", fill_alpha=0
 p.line(x, y2, legend_label="Fitting", line_color="red", line_width=2)
 
 bokeh.io.save(p)
-#show(p)
+show(p)
