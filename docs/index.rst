@@ -9,7 +9,6 @@ Welcome to Fitting Spectra's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents
 
    Getting Started.rst
    HowToFit.rst

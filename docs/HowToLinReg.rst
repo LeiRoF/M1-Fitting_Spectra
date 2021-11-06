@@ -95,8 +95,8 @@ On peut donc déterminer les coefficients :math:`a_0, a_1`
 .. math::
     :label: a0
 
-    a_0 = \frac  { \langle y \rangle * \langle x^2 \rangle - \langle y*x \rangle * \langle x \rangle }
-                { 1 * \langle x^2 \rangle - \langle x \rangle * \langle x \rangle }
+    a_0 = \frac  { \langle y \rangle \langle x^2 \rangle - \langle yx \rangle \langle x \rangle }
+                { \langle x^2 \rangle - \langle x \rangle \langle x \rangle }
 
 .. math::
     :label: a1_det
@@ -118,5 +118,5 @@ On peut donc déterminer les coefficients :math:`a_0, a_1`
 .. math::
     :label: a1
 
-    a_1 = \frac  { \langle yx \rangle - \langle x \rangle * \langle y \rangle }
-                { \langle x^2 \rangle - \langle x \rangle * \langle x \rangle }
+    a_1 = \frac  { \langle yx \rangle - \langle x \rangle \langle y \rangle }
+                { \langle x^2 \rangle - \langle x \rangle \langle x \rangle }
