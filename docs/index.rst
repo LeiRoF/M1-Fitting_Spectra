@@ -13,5 +13,6 @@ Welcome to Fitting Spectra's documentation!
    Getting Started.rst
    HowToFit.rst
    HowToLinReg.rst
+   Code description.rst
 
 
