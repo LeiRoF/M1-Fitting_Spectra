@@ -21,10 +21,6 @@ project = 'Fitting Spectra'
 copyright = '2021, Vincent Foriel'
 author = 'Vincent Foriel'
 
-latex_documents = [
- ('index', 'yourdoc.tex', u'DocName', u'YourName', 'manual'),
-]
-
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
