@@ -1,6 +1,6 @@
-*******************************************
-Comment effectuer une regression linéaire ?
-*******************************************
+********************
+Regression linéaire
+********************
 
 A l'instar de l'ajustement pour une lorentzienne, l'idée est ici aussi d'appliquer le méthode des moindres carrés. Cependant, nous avons désormais une équation plus simple:
 
@@ -9,14 +9,14 @@ A l'instar de l'ajustement pour une lorentzienne, l'idée est ici aussi d'appliq
 
     y = a_0 + a_1 x
 
-L'objectif est donc de trouver la combinaison :math:`\{a_0, a_1\}` de sorte à minimiser les coefficients
+L'objectif est donc de trouver la combinaison :math:`\{a_0, a_1\}` de sorte à minimiser les coefficients suivant.
 
 .. math::
     :label: E
 
     E(a_0,a_1) = \sum_{i=1}^{N} W_i (a_1 x_i + a_0 - y_i)^2
 
-Pour trouver un minimum, on cherche donc les points où la dérivée s'annule, ce qui nous donne:
+Le reste du développement est donc très similaire à celui effectué pour ajuster la Lorentzienne. Pour trouver un minimum, on cherche donc les points où la dérivée s'annule, ce qui nous donne:
 
 .. math::
     :label: E'=0

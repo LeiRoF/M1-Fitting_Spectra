@@ -1,6 +1,6 @@
-**********************************
-Comment ajuster une lorentzienne ?
-**********************************
+******************************
+Ajustement d'une Lorentzienne
+******************************
 
 L'objectif est de faire concorder une forme de spectre théorique, qui prend la forme d'une lorentzienne à un nuage de point.
 
@@ -11,7 +11,7 @@ La lorentienne est définie par :
 
     F(\omega) = \frac{S}{\pi} * \frac{\gamma}{(\omega-\omega_m)^2 + \gamma^2}
 
-Où :math:`\omega` est la fréquence d'émission; :math:`\omega_m` est la fréquence "moyenne", correspondant au centre de la lorentzienne; :math:`S = \int_{-\infty}^{\infty} F(\omega) d\omega` représente l'air totale sous la courbe du spectre (assimilable à l'énergie totale); :math:`\gamma` est le coefficient d'élargissement du gas considéré.
+Où :math:`\omega` est la fréquence d'émission; :math:`\omega_m` est la fréquence "moyenne", correspondant au centre de la lorentzienne; :math:`S = \int_{-\infty}^{\infty} F(\omega) d\omega` représente l'aire totale sous la courbe du spectre (assimilable à l'énergie totale); :math:`\gamma` est le coefficient d'élargissement du gas considéré.
 
 Afin de pouvoir réaliser cet ajustement théorique, nous avons besoin de transformer cette fonction de sorte à ce qu'elle prenne la forme d'un polynôme. On prend donc son inverse:
 

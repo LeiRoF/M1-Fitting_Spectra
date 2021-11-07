@@ -88,6 +88,12 @@ program smooth
     call average (WEIGHT1, WEIGHT, N, res)         ! weight average
     WEIGHT_av = res
 
+    denominator =   WEIGHT_av   * x2_av     * x4_av     &
+                +   2*x_av      * x2_av     * x3_av     &
+                -   x2_av       * x2_av     * x2_av     &
+                -   WEIGHT_av   * x3_av     * x3_av     &
+                -   x_av        * x_av      * x4_av     &
+
     
     a0 = (&                                             ! computing a0
             y_av        * x2_av     * x4_av     &
@@ -96,13 +102,7 @@ program smooth
         -   yx2_av      * x2_av     * x2_av     &
         -   y_av        * x3_av     * x3_av     &
         -   x_av        * yx_av     * x4_av     &
-        )/(&
-            WEIGHT_av     * x2_av     * x4_av     &
-        +   2*x_av        * x2_av     * x3_av     &
-        -   x2_av         * x2_av     * x2_av     &
-        -   WEIGHT_av     * x3_av     * x3_av     &
-        -   x_av          * x_av      * x4_av     &
-        )
+        ) / denominator
 
     a1 = (&                                             ! computing a1
             WEIGHT_av   * yx_av     * x4_av     &
@@ -111,13 +111,7 @@ program smooth
         -   x2_av       * x2_av     * yx_av     &
         -   x_av        * x4_av     * y_av      &
         -   WEIGHT_av   * x3_av     * yx2_av    &
-        )/(&
-            WEIGHT_av     * x2_av     * x4_av     &
-        +   2*x_av        * x2_av     * x3_av     &
-        -   x2_av         * x2_av     * x2_av     &
-        -   WEIGHT_av     * x3_av     * x3_av     &
-        -   x_av          * x_av      * x4_av     &
-        )
+        ) / denominator
 
     a2 = (&                                             ! computing a2
             WEIGHT_av   * x2_av     * yx2_av    &
@@ -126,13 +120,7 @@ program smooth
         -   x2_av       * x2_av     * y_av      &
         -   x_av        * x_av      * yx2_av    &  
         -   WEIGHT_av   * x3_av     * yx_av     &
-        ) / (&
-            WEIGHT_av     * x2_av     * x4_av     &
-        +   2*x_av        * x2_av     * x3_av     &
-        -   x2_av         * x2_av     * x2_av     &
-        -   WEIGHT_av     * x3_av     * x3_av     &
-        -   x_av          * x_av      * x4_av     &
-        )
+        ) / denominator
 
     wm = w_av - sigma * a1 / (2 * a2)
 

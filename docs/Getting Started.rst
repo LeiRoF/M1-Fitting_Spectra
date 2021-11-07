@@ -17,13 +17,19 @@ Installation
 
     git clone https://gitlab.com/LeiRoF/fitting-spectra
 
-2) Installez les dépendances du program Python permettant l'affichage des résultats sous la forme d'un graphique
+2) Déplacez vous dans le dossier du projet
+
+.. code-block::
+
+    cd fitting-spectra/
+
+3) Installez les dépendances du program Python permettant l'affichage des résultats sous la forme d'un graphique
 
 .. code-block::
 
     pip install -r ./requirements.txt
 
-3) En utilisant `GFortran <https://gcc.gnu.org/wiki/GFortran>`_, compilez les fichiers fortran
+4) En utilisant `GFortran <https://gcc.gnu.org/wiki/GFortran>`_, compilez les fichiers fortran
 
 .. code-block::
 
