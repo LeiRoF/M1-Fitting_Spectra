@@ -64,6 +64,8 @@ To find a minimum, we therefore look for the points where the derivative cancels
         E_{a_1}' &= 0 \\
         E_{a_2}' &= 0
     \end{cases}
+
+.. math::
     \rightarrow
     \begin{cases}
         \sum_{i=1}^N W_i 2(a_2 x_i^2 + a_1 x_i + a_0 - y_i) &= 0 \\
@@ -76,27 +78,40 @@ Which when decomposed gives us:
 
 .. math::
     
-    \begin{equation}
-        \begin{cases}
-            a_2 \sum_{i=1}^N W_i x_i^2 + a_1 \sum_{i=1}^N W_i x_i + a_0 \sum_{i=1}^N W_i &= \sum_{i=1}^N W_i y_i \\
-            a_2 \sum_{i=1}^N W_i x_i^3 + a_1 \sum_{i=1}^N W_i x_i^2 + a_0 \sum_{i=1}^N W_i x_i &= \sum_{i=1}^N W_i y_i x_i \\
-            a_2 \sum_{i=1}^N W_i x_i^4 + a_1 \sum_{i=1}^N W_i x_i^3 + a_0 \sum_{i=1}^N W_i x_i^2 &= \sum_{i=1}^N W_i y_i x_i^2 \\
-        \end{cases}\,
-    \end{equation}
+    \begin{cases}
+        a_2 \sum_{i=1}^N W_i x_i^2 + a_1 \sum_{i=1}^N W_i x_i + a_0 \sum_{i=1}^N W_i \\
+        a_2 \sum_{i=1}^N W_i x_i^3 + a_1 \sum_{i=1}^N W_i x_i^2 + a_0 \sum_{i=1}^N W_i x_i \\
+        a_2 \sum_{i=1}^N W_i x_i^4 + a_1 \sum_{i=1}^N W_i x_i^3 + a_0 \sum_{i=1}^N W_i x_i^2
+    \end{cases}
+
+.. math::
+    
+    =
+    \begin{cases}
+        \sum_{i=1}^N W_i y_i \\
+        \sum_{i=1}^N W_i y_i x_i \\
+        \sum_{i=1}^N W_i y_i x_i^2
+    \end{cases}
 
 
 If we divide everything by :math:`N`, we get the average of all terms:
 
 .. math::
 
-    \begin{equation}
-        \begin{cases}
-            a_2 \langle W \rangle \langle x^2 \rangle &+ a_1 \langle W \rangle \langle x \rangle   &+ a_0 \langle W \rangle       &= \langle W \rangle \langle y \rangle \\
-            a_2 \langle W \rangle \langle x^3 \rangle &+ a_1 \langle W \rangle \langle x^2 \rangle &+ a_0 \langle W \rangle \langle x \rangle   &= \langle W \rangle \langle y x \rangle \\
-            a_2 \langle W \rangle \langle x^4 \rangle &+ a_1 \langle W \rangle \langle x^3 \rangle &+ a_0 \langle W \rangle \langle x^2 \rangle &= \langle W \rangle \langle y x^2 \rangle \\
-        \end{cases}\,
-    \end{equation}
+    \begin{cases}
+        a_2 \langle W \rangle \langle x^2 \rangle &+ a_1 \langle W \rangle \langle x \rangle   &+ a_0 \langle W \rangle \\
+        a_2 \langle W \rangle \langle x^3 \rangle &+ a_1 \langle W \rangle \langle x^2 \rangle &+ a_0 \langle W \rangle \langle x \rangle \\
+        a_2 \langle W \rangle \langle x^4 \rangle &+ a_1 \langle W \rangle \langle x^3 \rangle &+ a_0 \langle W \rangle \langle x^2 \rangle
+    \end{cases}
 
+.. math::
+
+    =
+    \begin{cases}
+        \langle W \rangle \langle y \rangle \\
+        \langle W \rangle \langle y x \rangle \\
+        \langle W \rangle \langle y x^2 \rangle
+    \end{cases}
 
 Thus, we can divide everything by :math:`\langle W \rangle` and write this system as a matrix equation:
 
