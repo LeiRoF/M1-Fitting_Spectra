@@ -15,7 +15,18 @@ A ce moment là, nous avons un nouveau jeu de coordonnées qui vont pouvoir êtr
 
 Une fois cette étape effectuée, on peut désormais calculer les coefficients :math:`a_0`, :math:`a_1` et :math:`a_2`. 
 
-De là, on peut calculer les valeurs de :math:`\bar{\omega}`, :math:`\gamma` et :math:`S`, ce qui nous donne une courbe suivante :
+De là, on peut calculer les valeurs de :math:`\bar{\omega}`, :math:`\gamma` et :math:`S`.
 
-.. figure:: https://vincent.foriel.xyz/wp-content/uploads/2021/11/bokeh_plot.png
+En utilisant le premier spectre corrspondant à une pression de 1 atm, on obtient le résultat suivant:
 
+.. figure:: https://vincent.foriel.xyz/wp-content/uploads/2021/11/bokeh_plot-1.png
+
+Cependant, on remarque que la courbe qu'on obtient ne coincide pas totalement avec nos données initiales. En effet, ici, nous avons donné un poids égale à chacune des valeurs experimentales. Or, les valeurs hautes sont plus significatives que les valeurs basses car le bruit devient relativement négligeable. Ainsi, pour éviter d'essayer d'ajuster la courbe au bruit ambient, et ainsi avoir ce genre d'erreur, on donne un poids proportionel à l'intensité au carré de chaque mesure.
+
+De cette façon, on obtient le résultat suivant:
+
+.. figure:: https://vincent.foriel.xyz/wp-content/uploads/2021/11/bokeh_plot-2.png
+
+On peut ainsi répéter l'opération pour les autres spectres, donc pour d'autres pressions, ce qui nous donne:
+
+.. figure:: https://vincent.foriel.xyz/wp-content/uploads/2021/11/bokeh_plot-3.png
