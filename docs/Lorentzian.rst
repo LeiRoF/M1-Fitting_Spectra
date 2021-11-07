@@ -58,13 +58,13 @@ The objective is to find the combination :math:`{a_0, a_1, a_2}` so as to minimi
 To find a minimum, we therefore look for the points where the derivative cancels, which gives us:
 
 .. math::
-    :label: E'=0
 
     \begin{cases}
         E_{a_0}' &= 0 \\
         E_{a_1}' &= 0 \\
         E_{a_2}' &= 0
-    \end{cases}\,\rightarrow
+    \end{cases}
+    \rightarrow
     \begin{cases}
         \sum_{i=1}^N W_i 2(a_2 x_i^2 + a_1 x_i + a_0 - y_i) &= 0 \\
         \sum_{i=1}^N W_i 2(a_2 x_i^2 + a_1 x_i + a_0 - y_i) x_i &= 0 \\
@@ -75,7 +75,6 @@ To find a minimum, we therefore look for the points where the derivative cancels
 Which when decomposed gives us:
 
 .. math::
-    :label: sums
     
     \begin{equation}
         \begin{cases}
@@ -89,7 +88,6 @@ Which when decomposed gives us:
 If we divide everything by :math:`N`, we get the average of all terms:
 
 .. math::
-    :label: sys
 
     \begin{equation}
         \begin{cases}
@@ -123,23 +121,6 @@ Thus, we can divide everything by :math:`\langle W \rangle` and write this syste
 
 
 So we can determine the coefficients :math:`a_0, a_1, a_2`
-
-.. math::
-    :label: a0
-
-    a_0 = \frac{
-    \begin{vmatrix}
-        \langle y \rangle & \langle x \rangle & \langle x^2 \rangle
-        \langle yx \rangle & \langle x^2 \rangle & \langle x^3 \rangle
-        \langle yx^2 \rangle & \langle x^3 \rangle & \langle x^4 \rangle 
-    \end{vmatrix}
-    }{
-    \begin{vmatrix}
-        1 & \langle x & \langle x^2
-        \1 & \langle x \rangle & \langle x^2 \rangle & \langle x^3 \rangle
-        \rangle x^2 \rangle & \langle x^3 \rangle & \langle x^4 \rangle 
-    \end{vmatrix}
-    }
 
 .. math::
     :label: a0
