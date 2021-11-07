@@ -2,6 +2,9 @@
 Regression linéaire
 ********************
 
+En théorie
+==========
+
 A l'instar de l'ajustement pour une lorentzienne, l'idée est ici aussi d'appliquer le méthode des moindres carrés. Cependant, nous avons désormais une équation plus simple:
 
 .. math::
@@ -120,3 +123,24 @@ On peut donc déterminer les coefficients :math:`a_0, a_1`
 
     a_1 = \frac  { \langle yx \rangle - \langle x \rangle \langle y \rangle }
                 { \langle x^2 \rangle - \langle x \rangle \langle x \rangle }
+
+En pratique
+===========
+
+Le programme vient lire un fichier contenant sur chaque ligne une valeur de :math:`\omega(P)`. On sait que les valeurs de P sont, respectivement pour chaque ligne: :math:`[1,3,6,10,15]`
+
+Ici, nous n'avons pas besoin de modifier les données car la fonction :math:`\omega(P)` est déjà sous la forme d'un polynome de type :math:`y = a_0 + a_1x`
+
+On calcule alors directement les sommes des différents éléments (:math:`\omega`, :math:`P` mais aussi leurs carré etc.). Ici, on calcul la somme et non la moyenne dans un soucis de minimisation du nombre de lignes de codes, mais le principe et le résultat sont les mêmes.
+
+Une fois cette étape effectuée, on peut désormais calculer les coefficients :math:`a_0`, :math:`a_1`, qui nous donnent directement l'expression de notre droite.
+
+On obtient donc une droite d'expression
+
+.. math::
+
+    \omega = 0.145 * P + 2282.498
+
+:math:`2282.498`` correspond donc à l'intensité minimale engendré par la rotation des molécules du gaz.
+
+.. figure:: https://vincent.foriel.xyz/wp-content/uploads/2021/11/bokeh_plot-7.png

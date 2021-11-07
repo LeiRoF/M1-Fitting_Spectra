@@ -11,8 +11,7 @@ Welcome to Fitting Spectra's documentation!
    :maxdepth: 2
 
    Getting Started.rst
-   HowToFit.rst
-   HowToLinReg.rst
-   Code description.rst
+   Lorentzian.rst
+   LinReg.rst
 
 
