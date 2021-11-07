@@ -58,6 +58,7 @@ The objective is to find the combination :math:`{a_0, a_1, a_2}` so as to minimi
 To find a minimum, we therefore look for the points where the derivative cancels, which gives us:
 
 .. math::
+    :label: E'=0
 
     \begin{cases}
         E_{a_0}' &= 0 \\
@@ -77,6 +78,7 @@ To find a minimum, we therefore look for the points where the derivative cancels
 Which when decomposed gives us:
 
 .. math::
+    :label: sums
     
     \begin{cases}
         a_2 \sum_{i=1}^N W_i x_i^2 + a_1 \sum_{i=1}^N W_i x_i + a_0 \sum_{i=1}^N W_i \\
@@ -97,6 +99,7 @@ Which when decomposed gives us:
 If we divide everything by :math:`N`, we get the average of all terms:
 
 .. math::
+    :label: system
 
     \begin{cases}
         a_2 \langle W \rangle \langle x^2 \rangle &+ a_1 \langle W \rangle \langle x \rangle   &+ a_0 \langle W \rangle \\
