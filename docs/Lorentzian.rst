@@ -60,18 +60,16 @@ To find a minimum, we therefore look for the points where the derivative cancels
 .. math::
     :label: E'=0
 
-    \begin{equation}
-        \begin{cases}
-            E_{a_0}' &= 0 \\
-            E_{a_1}' &= 0 \\
-            E_{a_2}' &= 0
-        \end{cases}\,\rightarrow
-        \begin{cases}
-            \sum_{i=1}^N W_i 2(a_2 x_i^2 + a_1 x_i + a_0 - y_i) &= 0 \\
-            \sum_{i=1}^N W_i 2(a_2 x_i^2 + a_1 x_i + a_0 - y_i) x_i &= 0 \\
-            \sum_{i=1}^N W_i 2(a_2 x_i^2 + a_1 x_i + a_0 - y_i) x_i^2 &= 0
-        \end{cases}\,
-    \end{equation}
+    \begin{cases}
+        E_{a_0}' &= 0 \\
+        E_{a_1}' &= 0 \\
+        E_{a_2}' &= 0
+    \end{cases}\,\rightarrow
+    \begin{cases}
+        \sum_{i=1}^N W_i 2(a_2 x_i^2 + a_1 x_i + a_0 - y_i) &= 0 \\
+        \sum_{i=1}^N W_i 2(a_2 x_i^2 + a_1 x_i + a_0 - y_i) x_i &= 0 \\
+        \sum_{i=1}^N W_i 2(a_2 x_i^2 + a_1 x_i + a_0 - y_i) x_i^2 &= 0
+    \end{cases}
 
 
 Which when decomposed gives us:
