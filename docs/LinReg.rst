@@ -28,9 +28,6 @@ The rest of the development is therefore very similar to that done to fit the Lo
         E_{a_0}' &= 0 \\
         E_{a_1}' &= 0
     \end{cases}
-    
-.. math::
-    
     \rightarrow
     \begin{cases}
         \sum_{i=1}^N W_i 2(a_1 x_i + a_0 - y_i) &= 0 \\
