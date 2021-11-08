@@ -227,14 +227,14 @@ From this we can calculate the values of :math:`\bar{\omega}`, :math:`\gamma` an
 
 Using the first spectrum corresponding to a pressure of 1 atm, we obtain the following result:
 
-    .. figure:: https://vincent.foriel.xyz/wp-content/uploads/2021/11/bokeh_plot-1.png
+.. image:: https://vincent.foriel.xyz/wp-content/uploads/2021/11/bokeh_plot-1.png
 
 However, we notice that the curve we obtain does not totally coincide with our initial data. Indeed, here, we have given an equal weight to each of the experimental values. However, the high values are more significant than the low values because the noise becomes relatively negligible. So, to avoid trying to adjust the curve to the ambient noise, and thus having this kind of error, we give a weight proportional to the squared intensity of each measurement.
 
 In this way, we obtain the following result:
 
-    .. figure:: https://vincent.foriel.xyz/wp-content/uploads/2021/11/bokeh_plot-2.png
+.. image:: https://vincent.foriel.xyz/wp-content/uploads/2021/11/bokeh_plot-2.png
 
 The operation can be repeated for the other spectra, thus for other pressures, which gives us:
 
-    .. figure:: https://vincent.foriel.xyz/wp-content/uploads/2021/11/bokeh_plot-4.png
+.. image:: https://vincent.foriel.xyz/wp-content/uploads/2021/11/bokeh_plot-4.png
