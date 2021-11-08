@@ -100,7 +100,7 @@ for fileName in os.listdir("tex/tmp/"):
             if "\begin{equation}" in line:
                 keepLine = False
             if "\end{equation}" in line:
-                keepLine = False
+                keepLine = FalseExo
 
             if keepLine:
                 newFileContent.append(line)
