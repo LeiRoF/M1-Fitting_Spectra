@@ -1,8 +1,8 @@
 *******************
-Guide d'utilisation
+Getting Started
 *******************
 
-Dépendences
+Dependencies
 ===========
 
 - Fortran 90
@@ -11,25 +11,25 @@ Dépendences
 Installation
 ============
 
-1) Placez vous dans le dossier de votre choix, puis clonez le répertoire git via la commande :
+1) Go to the folder of your choice, then clone the git directory with the command :
 
 .. code-block::
 
     git clone https://gitlab.com/LeiRoF/fitting-spectra
 
-2) Déplacez vous dans le dossier du projet
+2) Move to the project folder
 
 .. code-block::
 
     cd fitting-spectra/
 
-3) Installez les dépendances du program Python permettant l'affichage des résultats sous la forme d'un graphique
+3) Install the dependencies of the Python program allowing the display of the results in the form of a graph
 
 .. code-block::
 
     pip install -r ./requirements.txt
 
-4) En utilisant `GFortran <https://gcc.gnu.org/wiki/GFortran>`_, compilez les fichiers fortran
+4) Using `GFortran <https://gcc.gnu.org/wiki/GFortran>`_, compile the fortran files
 
 .. code-block::
 
@@ -37,29 +37,28 @@ Installation
     gfortran -o fit_omega ./fit_omega.f90
 
 
-Utilisation
+Usage
 ===========
 
-Ce projet contient 2 programmes indépendants : 
+This project contains 2 independent programs: 
 
-- Fit Spectra a pour but de déterminer une fonction lorentzienne à partir d'un ensemble de points donnés via un fichier dans `./data/`
-- Fit Omega permet ensuite de faire une régression linéaire, ce qui permet, dans le contexte de ce projet, de déterminer l'énergie fondamentale de rotation du gaz.
+- Fit Spectra aims to determine a Lorentzian function from a set of given points via a file in `./data/`
+- Fit Omega then allows you to do a linear regression, which in the context of this project allows you to determine the fundamental rotational energy of the gas.
 
-Vous pouvez éditez les fichiers `fit_spectra.f90` et `fit_omega.f90` afin d'y modifier le fichier considéré. Une fois édité, ré-effectuez l'étape 3 de l'installation (compilation des fichiers Fortran)
+You can edit the `fit_spectra.f90` and `fit_omega.f90` files to modify the file in question. Once edited, perform step 3 of the installation (compiling the Fortran files) again
 
-Lancer Fit Spectra
+Launch Fit Spectra
 
 .. code-block::
 
     ./fit_spectra
 
-Lancer Fit Omega
+Run Fit Omega
 
-.. code-block::
+. code-block::
 
     ./fit_omega
 
 .. note::
     
-    Si une erreur apparait à la fin de l'execution du programme et qu'aucune fenêtre ne s'affiche, vous pouvez l'ouvrir manuellement en utilisant votre navigateur pour ouvrir le fichier `plot_spectra.hmtl` ou `plot_omega.html`
-
+    If an error appears at the end of the program execution and no window appears, you can open it manually by using your browser to open the file `plot_spectra.hmtl` or `plot_omega.html`

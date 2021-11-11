@@ -14,7 +14,7 @@ The Lorentzian is defined by :
 
     F(\omega) = \frac{S}{\pi} * \frac{\gamma}{(\omega-\omega_m)^2 + \gamma^2}
 
-Where:math:`\omega` is the emission frequency; :math:`\omega_m` is the "average" frequency, corresponding to the centre of the Lorentzian; :math:`S = \int_{-\infty}^{\infty} F(\omega) d\omega` is the total area under the spectrum curve (equivalent to the total energy); :math:`\gamma` is the broadening coefficient of the gas under consideration.
+Where :math:`\omega` is the emission frequency; :math:`\omega_m` is the "average" frequency, corresponding to the centre of the Lorentzian; :math:`S = \int_{-\infty}^{\infty} F(\omega) d\omega` is the total area under the spectrum curve (equivalent to the total energy); :math:`\gamma` is the broadening coefficient of the gas under consideration.
 
 In order to perform this theoretical fit, we need to transform this function so that it takes the form of a polynomial. We therefore take its inverse:
 
@@ -183,7 +183,7 @@ So we can determine the coefficients :math:`a_0, a_1, a_2`
     \end{vmatrix}
     }
 
-Once these coefficients have been calculated, the values of :math:`S`, :math:``gamma` and :math:``bar{\omega}` can be found. Their expression can be recovered from the equations :eq:`F(x)-1` and :eq:`y(x)`
+Once these coefficients have been calculated, the values of :math:`S`, :math:`gamma` and :math:`\bar{\omega}` can be found. Their expression can be recovered from the equations :eq:`F(x)-1` and :eq:`y(x)`
 
 .. math::
     :label: wm
@@ -198,7 +198,7 @@ Once these coefficients have been calculated, the values of :math:`S`, :math:``g
 .. math::
     :label: S
 
-    S = \frac{pi \sigma}{\sqrt{a_0 a_2} - \frac{a_1^2}{4}}
+    S = \frac{\pi \sigma}{\sqrt{a_0 a_2} - \frac{a_1^2}{4}}
 
 With these 3 parameters, we then have a complete description of :math:`F(\omega)` as initially described in the equation :eq:`F(w)`
 
